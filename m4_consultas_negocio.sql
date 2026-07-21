@@ -101,7 +101,7 @@ SELECT
     EXTRACT(MONTH FROM fecha_venta) AS mes,
     SUM(cantidad * precio_unitario) AS total_facturado,
     COUNT(id_venta) AS cantidad_pedidos,
-    AVG(cantidad * precio_unitario) AS ticket_promedio
+    ROUND(SUM(cantidad * precio_unitario) / COUNT(id_venta), 2) AS ticket_promedio
 FROM ventas
 GROUP BY EXTRACT(MONTH FROM fecha_venta)
 ORDER BY mes;
@@ -144,9 +144,10 @@ FROM ventas
 GROUP BY EXTRACT(MONTH FROM fecha_venta)
 ORDER BY mes;
 
--- El producto con id_producto = 1 fue el que generó la mayor facturación.
+-- El ranking permite identificar los cinco productos que generan mayor facturación. Estos productos representan los principales generadores de ingresos del negocio, por lo que conviene asegurar su disponibilidad de stock y considerar acciones comerciales para potenciar aún más sus ventas.
 
--- Los clientes que aparecen en esta consulta realizaron más de una compra durante el período analizado, por lo que pueden considerarse clientes recurrentes.
+-- Los clientes recurrentes constituyen una base importante para el negocio, ya que presentan mayor fidelización y generan ingresos repetidos. Este grupo es un buen candidato para implementar programas de beneficios o promociones exclusivas.
 
--- El total facturado varía entre los meses, permitiendo identificar cuáles quedaron por encima y cuáles por debajo del promedio mensual.
+-- El análisis mensual permite identificar la evolución de la facturación y del ticket promedio. Los meses con mayor facturación representan oportunidades para analizar qué factores impulsaron las ventas (promociones, estacionalidad o mayor demanda), mientras que los meses con menor desempeño requieren estrategias comerciales para incrementar los ingresos.
 
+-- Comparar cada mes con el promedio general permite detectar períodos de alto y bajo rendimiento. Esta información facilita la toma de decisiones comerciales y ayuda a investigar las causas de las variaciones observadas.
