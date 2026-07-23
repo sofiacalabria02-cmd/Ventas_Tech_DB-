@@ -30,3 +30,13 @@ El proyecto incluye las siguientes consultas:
 2. Ranking de los cinco productos con mayor facturación.
 3. Identificación de clientes recurrentes.
 4. Comparación de la facturación mensual respecto del promedio general mediante el uso de `CASE WHEN` y subconsultas.
+
+----------------------------------------------------------------
+--Modulo 5
+--Se utilizó la base de datos Ventas_Tech_DB, desarrollada en los módulos anteriores, compuesta por las siguientes tablas:
+--ventas, clientes, productos y categorias.
+--Aclaración sobre la consigna:
+--La consigna hace referencia a una tabla territorios y a los campos segmento, región y canal (Online/Presencial).
+--Sin embargo, dichos elementos no forman parte del modelo de datos construido en los módulos anteriores ni de la base de datos utilizada para este proyecto.
+--Por este motivo, las consultas fueron adaptadas utilizando únicamente la información disponible.
+
